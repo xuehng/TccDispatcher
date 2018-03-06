@@ -1,0 +1,130 @@
+﻿<Window x:Class="renstech.NET.SupernovaDispatcher.Layout.LicenseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Name="Window"
+        Title="软件注册"
+        Width="518"
+        Height="278"
+        ShowInTaskbar="True"
+        Background="{DynamicResource WindowBackground}"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ToolWindow"
+        mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="0"
+                    Orientation="Horizontal"
+                    d:LayoutOverrides="Height">
+            <Image Width="32"
+                   Source="Resources\unlock.png"
+                   Stretch="UniformToFill" />
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                       FontSize="16"
+                       Text="请输入您的激活码完成软件激活。"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+        <TextBox x:Name="txtActivationCode"
+                 Grid.Row="1"
+                 Margin="0,10"
+                 SnapsToDevicePixels="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 d:LayoutOverrides="Height" />
+        <Grid Grid.Row="2"
+              Height="50"
+              Margin="0"
+              VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnSerial"
+                    Margin="0,0,5,0"
+                    Click="btnSerial_Click"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    d:LayoutOverrides="Height">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="0,0,10,0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="生成序列号" />
+                    <Image Grid.Column="1"
+                           Width="32"
+                           Height="32"
+                           Margin="0,0,10,0"
+                           Source="/SupernovaDispatcher;component/Resources/license.png"
+                           Stretch="Fill"
+                           UseLayoutRounding="True" />
+
+                </Grid>
+            </Button>
+            <Button x:Name="btnActivate"
+                    Grid.Column="1"
+                    Height="50"
+                    Margin="0,0,5,0"
+                    Click="btnActivate_Click"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="0,0,10,0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="激活" />
+                    <Image Grid.Column="1"
+                           Width="32"
+                           Height="32"
+                           Margin="0,0,10,0"
+                           Source="/SupernovaDispatcher;component/Resources/light.png"
+                           Stretch="Fill"
+                           UseLayoutRounding="True" />
+                </Grid>
+            </Button>
+            <Button Grid.Column="2"
+                    Height="50"
+                    Margin="0"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsCancel="True"
+                    IsDefault="True"
+                    d:LayoutOverrides="Height">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="关闭" Margin="0,0,10,0" />
+                    <Image Grid.Column="1"
+                           Width="32"
+                           Height="32"
+                           Margin="0,0,10,0"
+                           Source="/SupernovaDispatcher;component/Resources/cancel_48.ico"
+                           Stretch="Fill"
+                           UseLayoutRounding="True" />
+
+                </Grid>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

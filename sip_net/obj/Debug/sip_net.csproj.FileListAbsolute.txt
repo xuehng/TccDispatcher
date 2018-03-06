@@ -1,0 +1,10 @@
+E:\projects\superdisp\branches\tcc\bin\Debug\sip_net.dll
+E:\projects\superdisp\branches\tcc\bin\Debug\sip_net.pdb
+E:\projects\superdisp\branches\tcc\sip_net\obj\Debug\sip_net.csprojResolveAssemblyReference.cache
+E:\projects\superdisp\branches\tcc\sip_net\obj\Debug\sip_net.dll
+E:\projects\superdisp\branches\tcc\sip_net\obj\Debug\sip_net.pdb
+C:\work\tcc\bin\Debug\sip_net.dll
+C:\work\tcc\bin\Debug\sip_net.pdb
+C:\work\tcc\sip_net\obj\Debug\sip_net.csprojResolveAssemblyReference.cache
+C:\work\tcc\sip_net\obj\Debug\sip_net.dll
+C:\work\tcc\sip_net\obj\Debug\sip_net.pdb

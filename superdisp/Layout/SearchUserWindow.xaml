@@ -1,0 +1,134 @@
+﻿<Window x:Class="renstech.NET.SupernovaDispatcher.Layout.SearchUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Name="Window"
+        Title="查找"
+        Width="506"
+        Height="320"
+        ResizeMode="NoResize"
+        ShowInTaskbar="True"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow"
+        mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot"
+          Margin="8"
+          VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Margin="0,5"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="姓名"
+               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+               FontSize="16" />
+        <TextBox x:Name="txtName"
+                 Grid.Row="1"
+                 Height="40"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                 FontSize="16"
+                 TextChanged="TxtNameTextChanged"
+                 TextWrapping="Wrap" />
+        <Label Grid.Row="2"
+               Margin="0,10,0,5"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="分机号码"
+               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+               FontSize="16" />
+        <TextBox x:Name="txtExtension"
+                 Grid.Row="3"
+                 Height="40"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                 FontSize="16"
+                 TextChanged="TxtExtensionTextChanged"
+                 TextWrapping="Wrap" />
+        <Grid Grid.Row="4" Margin="0,30,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnSearchCurrent"
+                    Height="50"
+                    Margin="0,0,5,0"
+                    Click="BtnSearchCurrentClick"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Width="32"
+                       Height="32"
+                       Margin="10,0,30,0"
+                       Source="/SupernovaDispatcher;component/Resources/search.png"
+                       Stretch="Fill"
+                       UseLayoutRounding="True" />
+                    <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="查找" />
+                </Grid>
+            </Button>
+            <Button Grid.Column="1"
+                    Margin="0,0,5,0"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsCancel="True"
+                    IsDefault="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Width="32"
+                       Height="32"
+                       Margin="10,0,30,0"
+                       Source="/SupernovaDispatcher;component/Resources/cancel_48.ico"
+                       Stretch="Fill"
+                       UseLayoutRounding="True" />
+                    <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="关闭" />
+                </Grid>
+            </Button>
+            <Button x:Name="btnKeyboard"
+                    Grid.Column="2"
+                    Width="60"
+                    Height="50"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
+                    Click="BtnKeyboardClick"
+                    Padding="0">
+                <Grid>
+                    <Image RenderTransformOrigin="0.5,0.5" Source="/SupernovaDispatcher;component/Resources/keyboard.ico">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform Y="-4" />
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Grid>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

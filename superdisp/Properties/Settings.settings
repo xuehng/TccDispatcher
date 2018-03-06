@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="renstech.NET.SupernovaDispatcher.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="superadmin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">superadmin</Value>
+    </Setting>
+    <Setting Name="UserInfoButtonWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">134</Value>
+    </Setting>
+    <Setting Name="UserInfoButtonHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="ChannelButtonTopInfoFontSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
+    <Setting Name="ChannelButtonBottomInfoFontSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">9</Value>
+    </Setting>
+    <Setting Name="GroupButtonWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="ConfigFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dispathcer.cfg</Value>
+    </Setting>
+    <Setting Name="RecordingFileDir" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">recordings</Value>
+    </Setting>
+    <Setting Name="HandsetUAFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sharpua.exe</Value>
+    </Setting>
+    <Setting Name="CallHistoryFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">callhistory.lst</Value>
+    </Setting>
+    <Setting Name="SettingNameGeneral" Type="System.String" Scope="User">
+      <Value Profile="(Default)">general</Value>
+    </Setting>
+    <Setting Name="RingingFileDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rings</Value>
+    </Setting>
+    <Setting Name="AdminUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

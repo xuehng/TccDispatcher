@@ -1,0 +1,7 @@
+C:\work\tcc\NModbus4\bin\Debug\NModbus4.xml
+C:\work\tcc\NModbus4\bin\Debug\NModbus4.dll
+C:\work\tcc\NModbus4\bin\Debug\NModbus4.pdb
+C:\work\tcc\NModbus4\obj\Debug\Modbus.Resources.resources
+C:\work\tcc\NModbus4\obj\Debug\NModbus4.csproj.GenerateResource.Cache
+C:\work\tcc\NModbus4\obj\Debug\NModbus4.dll
+C:\work\tcc\NModbus4\obj\Debug\NModbus4.pdb

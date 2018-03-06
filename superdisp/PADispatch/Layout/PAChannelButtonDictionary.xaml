@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="ChannelIdleBrush" Color="#e48ea8bd"/>
+    <SolidColorBrush x:Key="ChannelRingingBrush" Color="#e0f8f7ba"/>
+    <SolidColorBrush x:Key="ChannelAnsweredBrush" Color="#ffefb4b4"/>
+
+    <Style x:Key="PAChannelButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBaseStyle}">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{DynamicResource ChannelIdleBrush}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsStateConnected}" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ChannelAnsweredBrush}"></Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

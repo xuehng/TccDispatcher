@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Backward_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Backward-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Forward_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forward-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="navigate_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\navigate-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="navigate_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\navigate-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="navigate_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\navigate-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bullet_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bullet_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bullet_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bullet_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inbound_failed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inbound_failed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inbound_succeeded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inbound_succeeded.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="outbound_failed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\outbound_failed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="outbound_succeeded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\outbound_succeeded.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="preferences_system" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\preferences-system.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="group_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\group_edit.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_CONFIRM_QUIT" xml:space="preserve">
+    <value>请确认是否退出系统？</value>
+  </data>
+  <data name="IDS_CONFIRM_WINDOW_TITLE" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="warning_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\about.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="audio_volume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\audio-volume.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cog_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cog_edit.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="system_status" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\system_status.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="telephone_receiver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\telephone_receiver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="call_inbound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\call_inbound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="call_outbound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\call_outbound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Callhistory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Callhistory.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="message" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\message.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_setting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_setting.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="next_page" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\next_page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="private_group" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\private_group.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="public_group" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\public_group.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="group_next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\group_next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="group_previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\group_previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="status_offline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\status_offline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="status_online" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\status_online.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\camera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_CHANNEL_IDLE" xml:space="preserve">
+    <value>空闲</value>
+  </data>
+  <data name="IDS_SUBSYSTEM_DAVINCI" xml:space="preserve">
+    <value>广播调度系统</value>
+  </data>
+  <data name="IDS_SUBSYSTEM_VIDEOMONIT" xml:space="preserve">
+    <value>视频监控系统</value>
+  </data>
+  <data name="IDS_SUBSYSTEM_SUPERNOVADISPATCH" xml:space="preserve">
+    <value>专用调度系统</value>
+  </data>
+  <data name="IDS_SUBSYSTEM_SUPERNOVADISPATCH_SETTINGNAME" xml:space="preserve">
+    <value>supernova</value>
+  </data>
+  <data name="main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_list.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_CHANNEL_NAME" xml:space="preserve">
+    <value>通道</value>
+  </data>
+  <data name="hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="micphone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\micphone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="speaker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\speaker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_RECORD_DELETE_ALL_CONTENT" xml:space="preserve">
+    <value>请确认是否删除所有录音文件？</value>
+  </data>
+  <data name="IDS_RECORD_DELETE_ALL_TITLE" xml:space="preserve">
+    <value>录音文件删除</value>
+  </data>
+  <data name="IDS_CALLHISTORY_DELETE_ALL" xml:space="preserve">
+    <value>请确认是否删除所有通话记录？</value>
+  </data>
+  <data name="IDS_MESSAGE_DELETE_ALL" xml:space="preserve">
+    <value>请确认是否删除所有消息？</value>
+  </data>
+  <data name="IDS_HANDSET_LEFT" xml:space="preserve">
+    <value>左手柄</value>
+  </data>
+  <data name="IDS_HANDSET_RIGHT" xml:space="preserve">
+    <value>右手柄</value>
+  </data>
+  <data name="IDS_ERROR_WINDOW_TITLE" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="IDS_GROUP_ALLUSER" xml:space="preserve">
+    <value>全体用户</value>
+  </data>
+  <data name="IDS_NIDS_SERVER_ERROR_FORMAT" xml:space="preserve">
+    <value>NIDS服务器（{0}）连接失败。</value>
+  </data>
+  <data name="alert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_inbound_call" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_inbound_call.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_outbound_call" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_outbound_call.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backward.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancel_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_48.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forward.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_MESSAGE_DEST_FORMAT" xml:space="preserve">
+    <value>消息接收方 : {0} {1}</value>
+  </data>
+  <data name="IDS_PRIVATE_GROUP_SYNC_ERR" xml:space="preserve">
+    <value>用户组信息同步失败！</value>
+  </data>
+  <data name="message_go" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\message-go.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pause.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\play.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rec_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rec on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stop.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inbound_call" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inbound_call.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inbound_call_failed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inbound_call_failed.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="outbound_call" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\outbound_call.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="outbound_call_failed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\outbound_call_failed.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_call_from" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_call_from.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_call_to" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_call_to.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_LOGIN_ERR" xml:space="preserve">
+    <value>登陆用户名或密码错误。</value>
+  </data>
+  <data name="log" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\log.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="disable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disable.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enable.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_SOFTWARE_ACTIVATE" xml:space="preserve">
+    <value>软件激活成功！</value>
+  </data>
+  <data name="audio_volume_low" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\audio-volume-low.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Decrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Decrease.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_MAIN_SPEAKER" xml:space="preserve">
+    <value>主扬声器</value>
+  </data>
+  <data name="IDS_SOFTWARE_ACTIVATE_FAILURE" xml:space="preserve">
+    <value>软件激活码不正确！</value>
+  </data>
+  <data name="IDS_FILE_DELETE_FAILURE" xml:space="preserve">
+    <value>文件删除失败！</value>
+  </data>
+  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_SEARCH_NOT_FOUND" xml:space="preserve">
+    <value>无法查找到该用户！</value>
+  </data>
+  <data name="IDS_PREFIX_BROADCAST" xml:space="preserve">
+    <value>广播</value>
+  </data>
+  <data name="IDS_PREFIX_CONF" xml:space="preserve">
+    <value>会议</value>
+  </data>
+  <data name="IDS_PREFIX_EAVESDROP" xml:space="preserve">
+    <value>监听</value>
+  </data>
+  <data name="IDS_PREFIX_FINDCALL" xml:space="preserve">
+    <value>寻呼</value>
+  </data>
+  <data name="IDS_PREFIX_INTERCEPTE" xml:space="preserve">
+    <value>强拆</value>
+  </data>
+  <data name="IDS_PREFIX_PAGE" xml:space="preserve">
+    <value>组呼</value>
+  </data>
+  <data name="IDS_PREFIX_THREEWAY" xml:space="preserve">
+    <value>强插</value>
+  </data>
+  <data name="background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trinno_Link" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Trinno Link.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shortcuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shortcuts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_SUBSYSTEM_INIT_FAIL_FORMAT" xml:space="preserve">
+    <value>{0} 初始化失败！</value>
+  </data>
+  <data name="IDS_SUBSYSTEM_WIPOS" xml:space="preserve">
+    <value>定位系统</value>
+  </data>
+  <data name="marker_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\marker_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ips_device" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ips_device.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keyboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keyboard.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Map_Marker_Ball_Chartreuse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Map-Marker-Ball-Chartreuse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Marker_Flag__Left_Pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Marker-Flag--Left-Pink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_customized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_customized.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_GROUP_CUSTOMIZED" xml:space="preserve">
+    <value>自定义组</value>
+  </data>
+  <data name="IDS_ERR_EXT_EXIST" xml:space="preserve">
+    <value>该分机号码已经存在</value>
+  </data>
+  <data name="unlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IDS_GROUP_OTHER" xml:space="preserve">
+    <value>其他组</value>
+  </data>
+  <data name="IDS_GROUP_EDITTING_DENIED" xml:space="preserve">
+    <value>信息无法保存到服务器，请检查系统设置或网络连接！</value>
+  </data>
+  <data name="IDS_SERVER_DISCONNECTED" xml:space="preserve">
+    <value>信息保存失败</value>
+  </data>
+  <data name="IDS_GROUPNAMEEXISTS_CONTENT" xml:space="preserve">
+    <value>已存在相同组名，请重新编辑！</value>
+  </data>
+  <data name="IDS_GROUPNAMEEXISTS_TITLE" xml:space="preserve">
+    <value>组名已存在</value>
+  </data>
+  <data name="IDS_USEREXISTSINGROUP_CONTNET" xml:space="preserve">
+    <value>此用户已存在于当前组中！</value>
+  </data>
+  <data name="IDS_USEREXISTSINGROUP_TITLE" xml:space="preserve">
+    <value>此用户已存在</value>
+  </data>
+  <data name="IDS_SUBSYSTEM_SECURITY" xml:space="preserve">
+    <value>安防中心</value>
+  </data>
+</root>

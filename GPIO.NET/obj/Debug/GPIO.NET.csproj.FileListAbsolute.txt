@@ -1,0 +1,9 @@
+E:\projects\superdisp\branches\tcc\bin\Debug\GPIO.NET.dll
+E:\projects\superdisp\branches\tcc\bin\Debug\GPIO.NET.pdb
+E:\projects\superdisp\branches\tcc\GPIO.NET\obj\Debug\GPIO.NET.csprojResolveAssemblyReference.cache
+E:\projects\superdisp\branches\tcc\GPIO.NET\obj\Debug\GPIO.NET.dll
+E:\projects\superdisp\branches\tcc\GPIO.NET\obj\Debug\GPIO.NET.pdb
+C:\work\tcc\bin\Debug\GPIO.NET.dll
+C:\work\tcc\bin\Debug\GPIO.NET.pdb
+C:\work\tcc\GPIO.NET\obj\Debug\GPIO.NET.dll
+C:\work\tcc\GPIO.NET\obj\Debug\GPIO.NET.pdb

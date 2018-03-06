@@ -1,0 +1,164 @@
+﻿<Window x:Class="renstech.NET.SupernovaDispatcher.Layout.ChannelContextWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xcpt="http://schemas.xceed.com/wpf/xaml/themes"
+        x:Name="Window"
+        Title="通道操作"
+        ResizeMode="NoResize"
+        ShowInTaskbar="True"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid Margin="20"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.ColumnSpan="3"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   SnapsToDevicePixels="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="txtChannelName"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                               FontSize="16" />
+                    <TextBlock Name="txtChannelState"
+                               Grid.Row="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                </Grid>
+            </Label>
+            <Button x:Name="btnCallAnswer"
+                    Grid.Row="1"
+                    Width="105"
+                    Height="90"
+                    Margin="0,10,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="btnCallAnswer_Click"
+                    Content="呼叫应答"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsEnabled="{Binding CanAnswer}" />
+            <Button x:Name="btnShowVideoWin"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="105"
+                    Height="90"
+                    Margin="0,10,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="btnShowVideoWin_Click"
+                    Content="显示视频窗口"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsEnabled="{Binding HasVideo}" />
+            <Button x:Name="btnHold"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Width="105"
+                    Height="90"
+                    Margin="0,10,1,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="btnHold_Click"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsEnabled="{Binding CanHold}">
+                <Button.Style>
+                    <Style BasedOn="{x:Static xcpt:Office2007BlueResources.ButtonStyle}" TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsStateHold}" Value="True">
+                                <Setter Property="Content" Value="恢复通话" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsStateHold}" Value="False">
+                                <Setter Property="Content" Value="通话保持" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnHangup"
+                    Grid.Row="2"
+                    Width="105"
+                    Height="90"
+                    Margin="0,10,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="btnHangup_Click"
+                    Content="挂断通话"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsEnabled="{Binding IsChannelBusy}" />
+            <Button x:Name="btnRedirect"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Width="105"
+                    Height="90"
+                    Margin="0,10,10,0"
+                    Click="btnRedirect_Click"
+                    Content="呼叫转移"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsEnabled="{Binding IsStateConnected}" />
+            <Button x:Name="btnRedirectToHandset"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Width="105"
+                    Height="90"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="btnRedirectToHandset_Click"
+                    Content="转移至手柄"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsEnabled="{Binding IsStateConnected}" />
+            <Button Grid.Row="4"
+                    Grid.ColumnSpan="3"
+                    Height="50"
+                    Margin="0,20,0,0"
+                    VerticalAlignment="Bottom"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    IsCancel="True"
+                    IsDefault="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Width="32"
+                           Height="32"
+                           Margin="10,0,0,0"
+                           Source="/SupernovaDispatcher;component/Resources/cancel_48.ico"
+                           Stretch="Fill"
+                           UseLayoutRounding="True" />
+                    <TextBlock Grid.Column="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="关闭" />
+                </Grid>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

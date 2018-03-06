@@ -1,0 +1,432 @@
+﻿<UserControl x:Class="renstech.NET.SupernovaDispatcher.PADispatch.PADispatchUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:renstech.NET.SupernovaDispatcher.PADispatch"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="UserControl"
+             d:DesignHeight="480"
+             d:DesignWidth="640"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="PAZoneButtonDictionary.xaml" />
+                <ResourceDictionary Source="PAChannelButtonDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="StationListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+                <Setter Property="Padding" Value="2,0,0,0" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                            <Border x:Name="Bd"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    SnapsToDevicePixels="true">
+                                <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="true">
+                                    <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+                                </Trigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsSelected" Value="true" />
+                                        <Condition Property="Selector.IsSelectionActive" Value="false" />
+                                    </MultiTrigger.Conditions>
+                                    <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+                                </MultiTrigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ListBox x:Name="lbxZone"
+                     Grid.Row="0"
+                     Margin="0,0,0,10"
+                     HorizontalContentAlignment="Stretch"
+                     VerticalContentAlignment="Stretch"
+                     Background="{x:Null}"
+                     Padding="5"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     SelectionChanged="lbxZone_SelectionChanged">
+                <ListBox.Resources>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Resources>
+                            <!--  SelectedItem with focus  -->
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                            <!--  SelectedItem without focus  -->
+                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+                            <!--  SelectedItem text foreground  -->
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                        </Style.Resources>
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                    </Style>
+                </ListBox.Resources>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <local:ZoneLineControl />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="lbxSection"
+                         Height="84"
+                         Margin="0"
+                         HorizontalContentAlignment="Center"
+                         ItemContainerStyle="{DynamicResource StationListBoxItemStyle}"
+                         ScrollViewer.CanContentScroll="True"
+                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                         SelectionChanged="lbxSection_SelectionChanged"
+                         SnapsToDevicePixels="True"
+                         UseLayoutRounding="True">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Button Height="40"
+                                    HorizontalContentAlignment="Center"
+                                    Click="btnSection_Click"
+                                    Content="{Binding Name}"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                    FontSize="16" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel HorizontalAlignment="Stretch"
+                                                    VerticalAlignment="Stretch"
+                                                    Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.Template>
+                        <ControlTemplate TargetType="{x:Type ListBox}">
+                            <DockPanel>
+                                <RepeatButton Width="45"
+                                              Margin="0,0,5,0"
+                                              HorizontalAlignment="Stretch"
+                                              Command="{x:Static ScrollBar.LineLeftCommand}"
+                                              CommandTarget="{Binding ElementName=stationscrollviewer}"
+                                              DockPanel.Dock="Left">
+                                    <Image Source="/SupernovaDispatcher;component/Resources/group_previous.png" Stretch="None" />
+                                </RepeatButton>
+                                <RepeatButton Width="45"
+                                              Margin="5,0,0,0"
+                                              Command="{x:Static ScrollBar.LineDownCommand}"
+                                              CommandTarget="{Binding ElementName=stationscrollviewer}"
+                                              DockPanel.Dock="Right">
+                                    <Image Source="/SupernovaDispatcher;component/Resources/group_next.png" Stretch="None" />
+                                </RepeatButton>
+                                <Border BorderBrush="#FF5A7B9F"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                    <ScrollViewer x:Name="stationscrollviewer">
+                                        <ItemsPresenter />
+                                    </ScrollViewer>
+                                </Border>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </ListBox.Template>
+                </ListBox>
+            </Grid>
+        </Grid>
+        <Rectangle Grid.Column="1"
+                   Width="2"
+                   Margin="8,0"
+                   HorizontalAlignment="Left"
+                   OpacityMask="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"
+                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                   Stroke="#FF919191"
+                   d:LayoutOverrides="Width">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="Black" />
+                    <GradientStop Offset="1" Color="White" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid Grid.Column="2"
+              Width="200"
+              Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button x:Name="btnChannel"
+                    Height="70"
+                    Click="btnChannel_Click"
+                    Content="广播通道"
+                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                    FontSize="16"
+                    SnapsToDevicePixels="True"
+                    Style="{DynamicResource PAChannelButtonStyle}"
+                    UseLayoutRounding="True" />
+            <Rectangle Grid.Row="1"
+                       Height="3"
+                       Margin="0,5"
+                       Stroke="#FFBAB9B1">
+                <Rectangle.OpacityMask>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="Black" />
+                        <GradientStop Offset="1" Color="White" />
+                    </LinearGradientBrush>
+                </Rectangle.OpacityMask>
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="Black" />
+                        <GradientStop Offset="1" Color="#FFB6B5B0" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid Grid.Row="2"
+                  SnapsToDevicePixels="True"
+                  UseLayoutRounding="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="1"
+                        Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="2"
+                        Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="3"
+                        Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="4"
+                        Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="5"
+                        Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="6"
+                        Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="7"
+                        Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="8"
+                        Margin="0"
+                        BorderThickness="1,1,0,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="9"
+                        Margin="0"
+                        BorderThickness="1,1,0,1"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="4"
+                        Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="5"
+                        Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="6"
+                        Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="7"
+                        Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="8"
+                        Grid.Column="1"
+                        Margin="0"
+                        BorderThickness="1,1,1,0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+                <Button Grid.Row="9"
+                        Grid.Column="1"
+                        Margin="0"
+                        Content="未定义"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16" />
+            </Grid>
+            <Rectangle Grid.Row="3"
+                       Height="3"
+                       Margin="0,5"
+                       Stroke="#FFBAB9B1">
+                <Rectangle.OpacityMask>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="Black" />
+                        <GradientStop Offset="1" Color="White" />
+                    </LinearGradientBrush>
+                </Rectangle.OpacityMask>
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="Black" />
+                        <GradientStop Offset="1" Color="#FFB6B5B0" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid Grid.Row="4"
+                  Height="100"
+                  Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnSetting"
+                        Grid.Column="0"
+                        Margin="0,0,3,0"
+                        Click="btnSetting_Click"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16"
+                        SnapsToDevicePixels="True"
+                        UseLayoutRounding="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Width="40"
+                               Height="32"
+                               Margin="0,0,0,10"
+                               Source="/SupernovaDispatcher;component/Resources/main_setting.ico" />
+                        <TextBlock Grid.Row="1"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="设置" />
+                    </Grid>
+                </Button>
+                <Button x:Name="btnQuit"
+                        Grid.Column="1"
+                        Margin="3,0,0,0"
+                        Click="btnQuit_Click"
+                        ClipToBounds="True"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16"
+                        SnapsToDevicePixels="True"
+                        UseLayoutRounding="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Width="40"
+                               Height="32"
+                               Margin="0,0,0,10"
+                               SnapsToDevicePixels="True"
+                               Source="/SupernovaDispatcher;component/Resources/exit.ico"
+                               UseLayoutRounding="True" />
+                        <TextBlock Grid.Row="1"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="退出" />
+                    </Grid>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,1397 @@
+﻿<Window x:Class="renstech.NET.SupernovaDispatcher.Layout.OptionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:model="clr-namespace:renstech.NET.SupernovaDispatcher.Model"
+        xmlns:p="clr-namespace:renstech.NET.SupernovaDispatcher.Properties"
+        xmlns:xcpt="http://schemas.xceed.com/wpf/xaml/themes"
+        x:Name="Window"
+        Title="选项"
+        Width="732"
+        Height="536"
+        ResizeMode="NoResize"
+        ShowInTaskbar="True"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow"
+        mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="4,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <BulletDecorator Background="Transparent">
+                                <BulletDecorator.Bullet>
+                                    <Grid Width="25" Height="25">
+                                        <Ellipse x:Name="EllipseOutside"
+                                                 Fill="#FFF4F4F4"
+                                                 Stroke="#FFABC1DE"
+                                                 StrokeThickness="1" />
+                                        <Ellipse x:Name="EllipseInside"
+                                                 Width="Auto"
+                                                 Margin="2"
+                                                 HorizontalAlignment="Stretch"
+                                                 StrokeThickness="1">
+                                            <Ellipse.Fill>
+                                                <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                                    <GradientStop Offset="0" Color="#FFCACFD5" />
+                                                    <GradientStop Offset="1" Color="#FFF6F6F6" />
+                                                </LinearGradientBrush>
+                                            </Ellipse.Fill>
+                                            <Ellipse.Stroke>
+                                                <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                                    <GradientStop Offset="0" Color="#FFA2ACB9" />
+                                                    <GradientStop Offset="1" Color="#FFE4E6EA" />
+                                                </LinearGradientBrush>
+                                            </Ellipse.Stroke>
+                                        </Ellipse>
+                                        <Ellipse x:Name="boundEllipse"
+                                                 Fill="{TemplateBinding Background}"
+                                                 Opacity="0.3" />
+                                        <Ellipse x:Name="CheckMark"
+                                                 Margin="4"
+                                                 Fill="#FF4F6982" />
+                                    </Grid>
+                                </BulletDecorator.Bullet>
+                                <ContentPresenter Margin="{TemplateBinding Padding}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="Center"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  RecognizesAccessKey="True"
+                                                  TextElement.Foreground="{TemplateBinding Foreground}" />
+                            </BulletDecorator>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="EllipseOutside" Property="Stroke" Value="#FF5577A3" />
+                                <Setter TargetName="EllipseOutside" Property="Fill" Value="#FFDEEAFA" />
+                                <Setter TargetName="EllipseInside" Property="Stroke">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFFAD57A" />
+                                            <GradientStop Offset="1" Color="#FFFDF1CF" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="EllipseInside" Property="Fill">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFFCE7AF" />
+                                            <GradientStop Offset="1" Color="#FFFEF8E7" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="EllipseOutside" Property="Fill" Value="#FFC1D8F5" />
+                                <Setter TargetName="EllipseOutside" Property="Stroke" Value="#FF5577A3" />
+                                <Setter TargetName="EllipseInside" Property="Fill">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFFFD067" />
+                                            <GradientStop Offset="1" Color="#FFFFF4D5" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="EllipseInside" Property="Stroke">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFF28926" />
+                                            <GradientStop Offset="1" Color="#FFFAD5AF" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#FFB5B5B5" />
+                                <Setter TargetName="EllipseInside" Property="Stroke">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFE0E2E5" />
+                                            <GradientStop Offset="1" Color="#FFF2F3F3" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="EllipseInside" Property="Fill">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFEEF0F2" />
+                                            <GradientStop Offset="0.976" Color="White" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="EllipseOutside" Property="Fill" Value="White" />
+                                <Setter TargetName="EllipseOutside" Property="Stroke" Value="#FFAEB1B5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="#FFABC1DE" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="4,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <BulletDecorator Background="Transparent">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="25"
+                                      Height="25"
+                                      Background="#FFF4F4F4">
+                                    <Border x:Name="OutsideBorder"
+                                            Background="#FFF4F4F4"
+                                            BorderBrush="#FFABC1DE"
+                                            BorderThickness="1">
+                                        <Grid>
+                                            <Border x:Name="InsideBorder"
+                                                    Width="Auto"
+                                                    Height="Auto"
+                                                    Margin="1"
+                                                    BorderThickness="1">
+                                                <Border.BorderBrush>
+                                                    <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                                        <GradientStop Offset="0" Color="#FFA2ACB9" />
+                                                        <GradientStop Offset="1" Color="#FFE4E6EA" />
+                                                    </LinearGradientBrush>
+                                                </Border.BorderBrush>
+                                                <Border.Background>
+                                                    <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                                        <GradientStop Offset="0" Color="#FFCACFD5" />
+                                                        <GradientStop Offset="1" Color="#FFF6F6F6" />
+                                                    </LinearGradientBrush>
+                                                </Border.Background>
+                                            </Border>
+                                            <Border Background="{TemplateBinding Background}" Opacity="0.3" />
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Opacity="0.3" />
+                                    <Grid>
+                                        <Path x:Name="CheckMark"
+                                              Width="Auto"
+                                              Margin="3,2,2.125,2.375"
+                                              HorizontalAlignment="Stretch"
+                                              Data="M9.890625,3L5.875,9.6083333 3.875,6.8333333 5.734375,7.6583333z"
+                                              Fill="#FF4F6982"
+                                              Stretch="Fill"
+                                              Stroke="#FF4F6982"
+                                              StrokeDashCap="Round"
+                                              StrokeEndLineCap="Round"
+                                              StrokeLineJoin="Round"
+                                              StrokeStartLineCap="Round"
+                                              StrokeThickness="1" />
+                                        <Border x:Name="nullCheckBorder"
+                                                Margin="4"
+                                                Background="#FF4F6982"
+                                                Visibility="Collapsed" />
+                                    </Grid>
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                            <ContentPresenter Margin="{TemplateBinding Margin}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              RecognizesAccessKey="True" />
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                                <Setter TargetName="nullCheckBorder" Property="Visibility" Value="Visible" />
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="OutsideBorder" Property="BorderBrush" Value="#FF5577A3" />
+                                <Setter TargetName="OutsideBorder" Property="Background" Value="#FFDEEAFA" />
+                                <Setter TargetName="InsideBorder" Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFFCE7AF" />
+                                            <GradientStop Offset="1" Color="#FFFEF8E7" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="InsideBorder" Property="BorderBrush">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFFAD57A" />
+                                            <GradientStop Offset="1" Color="#FFFDF1CF" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="OutsideBorder" Property="Background" Value="#FFC1D8F5" />
+                                <Setter TargetName="InsideBorder" Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFFFD067" />
+                                            <GradientStop Offset="1" Color="#FFFFF4D5" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="InsideBorder" Property="BorderBrush">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFF28926" />
+                                            <GradientStop Offset="1" Color="#FFFAD5AF" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="OutsideBorder" Property="BorderBrush" Value="#FF5577A3" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#FFB5B5B5" />
+                                <Setter TargetName="OutsideBorder" Property="Background" Value="White" />
+                                <Setter TargetName="OutsideBorder" Property="BorderBrush" Value="#FFAEB1B5" />
+                                <Setter TargetName="InsideBorder" Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFEEF0F2" />
+                                            <GradientStop Offset="0.976" Color="White" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="InsideBorder" Property="BorderBrush">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.146,0.146" EndPoint="0.854,0.854">
+                                            <GradientStop Offset="0" Color="#FFE0E2E5" />
+                                            <GradientStop Offset="1" Color="#FFF2F3F3" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TabControl x:Name="tabControl" Grid.Row="0">
+                <TabItem FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                         FontSize="16"
+                         Header="通用设置">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="btnAddSysUser"
+                                    Height="30"
+                                    Margin="0,0,5,5"
+                                    Click="BtnAddSysUserClick"
+                                    Content="增加系统用户"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                    FontSize="14" />
+                            <Button x:Name="btnDelSysUser"
+                                    Grid.Column="1"
+                                    Height="30"
+                                    Margin="0,0,0,5"
+                                    Click="BtnDelSysUserClick"
+                                    Content="删除系统用户"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                    FontSize="14">
+                                <Button.Style>
+                                    <Style BasedOn="{x:Static xcpt:Office2007BlueResources.ButtonStyle}" TargetType="Button">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=lstSystemUser, Path=SelectedIndex}" Value="-1">
+                                                <Setter Property="IsEnabled" Value="false" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <ListBox x:Name="lstSystemUser"
+                                     Grid.Row="1"
+                                     Grid.ColumnSpan="2"
+                                     DisplayMemberPath="Name"
+                                     FontSize="22"
+                                     ItemsSource="{Binding SysUsers}" />
+                        </Grid>
+                        <Grid Grid.Column="1" Margin="0,10,10,10">
+                            <GroupBox HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <GroupBox.Header>
+                                    <StackPanel Width="328"
+                                                Height="426"
+                                                Orientation="Vertical">
+                                        <CheckBox x:Name="checkboxMaxWindow"
+                                                  Content="窗口最大化"
+                                                  FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                  FontSize="14"
+                                                  IsChecked="{Binding Path=MaxWindow,
+                                                                      Mode=TwoWay}"
+                                                  d:LayoutOverrides="Width" />
+                                        <CheckBox x:Name="checkboxAutoRun"
+                                                  Margin="0,5,0,0"
+                                                  Content="开机后自动运行"
+                                                  FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                  FontSize="14"
+                                                  IsChecked="{Binding Path=IsAutoRun,
+                                                                      Mode=TwoWay}"
+                                                  d:LayoutOverrides="Width" />
+                                    </StackPanel>
+                                </GroupBox.Header>
+                            </GroupBox>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                         FontSize="16"
+                         Header="账户设置">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.RowSpan="2" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <GroupBox x:Name="groupAccount"
+                                      Margin="0"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="SIP账号信息">
+                                <Grid Margin="0,10" d:LayoutOverrides="Width">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Margin="0,0,0,2"
+                                           HorizontalAlignment="Right"
+                                           HorizontalContentAlignment="Right"
+                                           VerticalContentAlignment="Center"
+                                           Content="账户ID"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12" />
+                                    <TextBox Grid.Column="1"
+                                             Margin="0,0,0,2"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                             Text="{Binding AccountUser,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap"
+                                             UseLayoutRounding="False" />
+                                    <Label Grid.Row="1"
+                                           Margin="0,0,0,2"
+                                           HorizontalAlignment="Right"
+                                           HorizontalContentAlignment="Right"
+                                           VerticalContentAlignment="Center"
+                                           Content="密码"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12" />
+                                    <PasswordBox Grid.Row="1"
+                                                 Grid.Column="1"
+                                                 Grid.ColumnSpan="2"
+                                                 Margin="0,0,0,2"
+                                                 VerticalContentAlignment="Center"
+                                                 FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                 FontSize="16"
+                                                 model:BoundPasswordBox.BoundPassword="{Binding AccountPassword,
+                                                                                                Mode=TwoWay}"
+                                                 d:LayoutOverrides="Height" />
+                                    <Label Grid.Row="2"
+                                           HorizontalAlignment="Right"
+                                           HorizontalContentAlignment="Right"
+                                           VerticalContentAlignment="Center"
+                                           Content="域名"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12" />
+                                    <TextBox Grid.Row="2"
+                                             Grid.Column="1"
+                                             Grid.ColumnSpan="2"
+                                             Margin="0,0,0,2"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding AccountDomain,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap"
+                                             d:LayoutOverrides="Height" />
+                                    <Label Grid.Row="3"
+                                           HorizontalAlignment="Right"
+                                           HorizontalContentAlignment="Right"
+                                           VerticalContentAlignment="Center"
+                                           Content="注册超时"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12" />
+                                    <TextBox Grid.Row="3"
+                                             Grid.Column="1"
+                                             Grid.ColumnSpan="2"
+                                             Margin="0"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding RegExpire,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap"
+                                             d:LayoutOverrides="Height" />
+                                    <Grid Grid.Row="4"
+                                          Grid.RowSpan="4"
+                                          Grid.ColumnSpan="2"
+                                          Margin="0,10,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.ColumnSpan="2"
+                                               Margin="0,0,0,7"
+                                               HorizontalAlignment="Left"
+                                               Content="通过以下服务器发送注册和呼叫请求:"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="14" />
+                                        <RadioButton x:Name="rbRegDomain"
+                                                     Grid.Row="1"
+                                                     Margin="0"
+                                                     VerticalAlignment="Top"
+                                                     Content="域名"
+                                                     FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                     FontSize="12"
+                                                     GroupName="reg"
+                                                     IsChecked="{Binding IsDomainReg,
+                                                                         Mode=TwoWay}"
+                                                     Padding="0" />
+                                        <RadioButton x:Name="rbRegProxy"
+                                                     Grid.Row="1"
+                                                     Grid.Column="1"
+                                                     Margin="0"
+                                                     Content="Proxy服务器"
+                                                     FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                     FontSize="12"
+                                                     GroupName="reg"
+                                                     IsChecked="{Binding IsProxyReg,
+                                                                         Mode=TwoWay}" />
+                                        <TextBox Grid.Row="2"
+                                                 Grid.ColumnSpan="2"
+                                                 Height="25"
+                                                 Margin="0,10,0,0"
+                                                 VerticalAlignment="Bottom"
+                                                 VerticalContentAlignment="Center"
+                                                 FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                 FontSize="16"
+                                                 IsEnabled="{Binding IsChecked,
+                                                                     ElementName=rbRegProxy}"
+                                                 Text="{Binding AccountProxy,
+                                                                Mode=TwoWay}"
+                                                 TextWrapping="Wrap" />
+                                    </Grid>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupRing"
+                                      Grid.Row="1"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="铃声设置"
+                                      d:LayoutOverrides="Height">
+                                <StackPanel VerticalAlignment="Top">
+                                    <TextBlock Margin="0,10,0,0"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="来电铃声" />
+                                    <ComboBox Name="cbxRingWavs"
+                                              Margin="0,2,0,5"
+                                              FontSize="22"
+                                              SelectedItem="{Binding RingFileName,
+                                                                     Mode=TwoWay}" />
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
+                        <Grid Grid.Row="1"
+                              Grid.Column="1"
+                              Margin="0,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <GroupBox x:Name="groupNids"
+                                      Grid.Row="0"
+                                      VerticalAlignment="Top"
+                                      VerticalContentAlignment="Stretch"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="指令与事件通知服务器">
+                                <Grid Margin="0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Margin="0,0,5,0"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="服务地址"
+                                               TextWrapping="Wrap" />
+                                    <TextBox Grid.Column="1"
+                                             Margin="0"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding NidsAddr,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap" />
+                                    <TextBlock Grid.Row="1"
+                                               Margin="0,5,5,0"
+                                               VerticalAlignment="Center"
+                                               ClipToBounds="True"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="指令端口"
+                                               TextWrapping="Wrap" />
+                                    <TextBox Grid.Row="1"
+                                             Grid.Column="1"
+                                             Margin="0,5,0,0"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding NidsInstructPort,
+                                                            Mode=TwoWay}" />
+                                    <TextBlock Grid.Row="2"
+                                               Margin="0,5,5,0"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="事件端口"
+                                               TextWrapping="Wrap" />
+                                    <TextBox Grid.Row="2"
+                                             Grid.Column="1"
+                                             Margin="0,5,0,0"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding NidsEventPort,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupXmlrpcService"
+                                      Grid.Row="1"
+                                      VerticalAlignment="Top"
+                                      VerticalContentAlignment="Stretch"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="XMLRPC服务">
+                                <Grid Margin="0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Margin="0,0,5,0"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="本机地址"
+                                               TextWrapping="Wrap" />
+                                    <TextBox Grid.Column="1"
+                                             Margin="0"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding IpAddress,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap" />
+                                    <TextBlock Grid.Row="1"
+                                               Margin="0,5,5,0"
+                                               VerticalAlignment="Center"
+                                               ClipToBounds="True"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="端口"
+                                               TextWrapping="Wrap" />
+                                    <TextBox Grid.Row="1"
+                                             Grid.Column="1"
+                                             Margin="0,5,0,0"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding XmlrpcPort,
+                                                            Mode=TwoWay}" />
+                                    <TextBlock Grid.Row="2"
+                                               Margin="0,0,5,0"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="远端地址"
+                                               TextWrapping="Wrap" />
+                                    <TextBox Grid.Row="2"
+                                             Grid.Column="1"
+                                             Margin="0"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding TccXmlrpcServerAddr,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap" />
+                                    <TextBlock Grid.Row="3"
+                                               Margin="0,5,5,0"
+                                               VerticalAlignment="Center"
+                                               ClipToBounds="True"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="端口"
+                                               TextWrapping="Wrap" />
+                                    <TextBox Grid.Row="3"
+                                             Grid.Column="1"
+                                             Margin="0,5,0,0"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding TccXmlrpcServerPort,
+                                                            Mode=TwoWay}" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupLog"
+                                      Grid.Row="2"
+                                      Margin="0"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="日志">
+                                <StackPanel VerticalAlignment="Top">
+                                    <TextBlock Margin="0,10,0,0"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               Text="日志级别" />
+                                    <ComboBox x:Name="cbxLogLevel"
+                                              Margin="0,2,0,5"
+                                              FontSize="22"
+                                              SelectedItem="{Binding LogLevel,
+                                                                     Mode=TwoWay}" />
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                         FontSize="16"
+                         Header="系统设置">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Margin="0,0,0,5">
+                            <GroupBox x:Name="groupGPIO"
+                                      Margin="0,5,0,0"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="GPIO"
+                                      d:LayoutOverrides="GridBox">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Margin="0,2"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           Content="左手柄"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12" />
+                                    <Label Grid.Row="1"
+                                           Margin="0,0,0,2"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="右手柄"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12" />
+                                    <TextBox Grid.Column="1"
+                                             Margin="0,2"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding LeftGPIO,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap"
+                                             d:LayoutOverrides="Height" />
+                                    <TextBox Grid.Row="1"
+                                             Grid.Column="1"
+                                             Margin="0,0,0,2"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding RightGPIO,
+                                                            Mode=TwoWay}"
+                                             TextWrapping="Wrap"
+                                             d:LayoutOverrides="Height" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupUI"
+                                      Margin="0,10,0,0"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="用户按钮">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Margin="0,5"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Content="每行用户个数"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12"
+                                           d:LayoutOverrides="Width, Height" />
+                                    <TextBox x:Name="tbxUserButtonWidth"
+                                             Grid.Column="1"
+                                             Margin="0,5"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding UserButtonLineCount,
+                                                            Mode=TwoWay}"
+                                             d:LayoutOverrides="Height" />
+                                    <Label Grid.Row="1"
+                                           Margin="0,5"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Content="高度"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12"
+                                           d:LayoutOverrides="Width, Height" />
+                                    <TextBox x:Name="tbxUserButtonHeigth"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Margin="0,5"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding UserButtonLineHeight,
+                                                            Mode=TwoWay}"
+                                             d:LayoutOverrides="Height" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Margin="0,10,0,0"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="用户组按钮">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Margin="0,5"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Content="宽度"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12"
+                                           d:LayoutOverrides="Width, Height" />
+                                    <TextBox x:Name="tbxGroupButtonWidth"
+                                             Grid.Column="1"
+                                             Margin="0,5"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             Text="{Binding GroupButtonWidth,
+                                                            Mode=TwoWay,
+                                                            Source={x:Static p:Settings.Default}}"
+                                             d:LayoutOverrides="Height" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupTheme"
+                                      Margin="0,10,0,0"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="主题"
+                                      Visibility="Collapsed">
+                                <Grid Margin="0,5">
+                                    <ComboBox x:Name="comboxTheme"
+                                              FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                              FontSize="16"
+                                              SelectionChanged="ComboxThemeSelectionChanged" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupRecording"
+                                      Margin="0,10,0,0"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="录音文件">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Margin="0,5"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Content="保存路径"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12"
+                                           d:LayoutOverrides="Width, Height" />
+                                    <TextBox Grid.Column="1"
+                                             Margin="0,5"
+                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                             FontSize="16"
+                                             IsReadOnly="True"
+                                             Text="{Binding RecordingFileDir,
+                                                            Mode=TwoWay,
+                                                            UpdateSourceTrigger=PropertyChanged}"
+                                             d:LayoutOverrides="Height" />
+                                    <Button x:Name="btnEditRecordingFileDir"
+                                            Grid.Column="2"
+                                            Width="70"
+                                            Click="BtnEditRecordingFileDir_OnClick"
+                                            Content="浏览文件夹" />
+                                    <Label Grid.Row="1"
+                                           Margin="0,5"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Content="保存时间"
+                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                           FontSize="12"
+                                           d:LayoutOverrides="Width, Height" />
+                                    <DockPanel Grid.Row="1"
+                                               Grid.Column="1"
+                                               Margin="0,5"
+                                               FlowDirection="RightToLeft">
+                                        <Label Width="50"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               HorizontalContentAlignment="Center"
+                                               Content="(天)"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               FontSize="12"
+                                               d:LayoutOverrides="Width, Height" />
+                                        <TextBox FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                 FontSize="16"
+                                                 Text="{Binding RecordingDelDate,
+                                                                Mode=TwoWay,
+                                                                UpdateSourceTrigger=PropertyChanged}" />
+                                    </DockPanel>
+                                    <Button x:Name="btnDelPreviousRecordings"
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            Width="70"
+                                            Click="BtnDelPreviousRecordings_OnClick"
+                                            Content="立即删除" />
+                                </Grid>
+                            </GroupBox>
+                        </StackPanel>
+                        <Grid Grid.Column="1" Margin="10,0,0,0">
+                            <GroupBox x:Name="groupDevices"
+                                      VerticalContentAlignment="Stretch"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16"
+                                      Header="音频设备">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid Margin="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.ColumnSpan="2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="主进程音频设置"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="VerticalAlignment, GridBox, HorizontalMargin" />
+                                        <Label Grid.Row="1"
+                                               Height="25"
+                                               Margin="0,0,0,2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="输入"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="HorizontalAlignment" />
+                                        <ComboBox x:Name="cbxMainInput"
+                                                  Grid.Row="1"
+                                                  Grid.Column="1"
+                                                  Margin="0,0,0,2"
+                                                  FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                  FontSize="16"
+                                                  SelectedItem="{Binding MainInput,
+                                                                         Mode=TwoWay}" />
+                                        <Label Grid.Row="2"
+                                               Height="25"
+                                               Margin="0,0,0,2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="输出"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="HorizontalAlignment" />
+                                        <ComboBox x:Name="cbxMainOutput"
+                                                  Grid.Row="2"
+                                                  Grid.Column="1"
+                                                  Margin="0,0,0,2"
+                                                  FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                  FontSize="16"
+                                                  SelectedItem="{Binding MainOutput,
+                                                                         Mode=TwoWay}" />
+                                        <Button x:Name="btnMainPlay"
+                                                Grid.Row="3"
+                                                Grid.Column="2"
+                                                Height="30"
+                                                Margin="0,5,0,0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                Click="BtnMainPlayClick"
+                                                Content="测试音频输出"
+                                                FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                d:LayoutOverrides="VerticalAlignment" />
+                                    </Grid>
+                                    <Grid Grid.Row="1"
+                                          Margin="0"
+                                          d:LayoutOverrides="GridBox">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.ColumnSpan="2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="左手柄音频设置"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="VerticalAlignment, GridBox, HorizontalMargin" />
+                                        <Label Grid.Row="1"
+                                               Height="25"
+                                               Margin="0,0,0,2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="输入"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="HorizontalAlignment" />
+                                        <ComboBox x:Name="cbxLeftInput"
+                                                  Grid.Row="1"
+                                                  Grid.Column="1"
+                                                  Margin="0,0,0,2"
+                                                  FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                  FontSize="16"
+                                                  SelectedItem="{Binding LeftInput,
+                                                                         Mode=TwoWay}"
+                                                  d:LayoutOverrides="Height" />
+                                        <Label Grid.Row="2"
+                                               Height="25"
+                                               Margin="0,0,0,2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="输出"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="HorizontalAlignment" />
+                                        <ComboBox x:Name="cbxLeftOutput"
+                                                  Grid.Row="2"
+                                                  Grid.Column="1"
+                                                  Margin="0"
+                                                  FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                  FontSize="16"
+                                                  SelectedItem="{Binding LeftOutput,
+                                                                         Mode=TwoWay}" />
+                                        <Button x:Name="btnLeftPlay"
+                                                Grid.Row="3"
+                                                Grid.Column="2"
+                                                Height="30"
+                                                Margin="0,5,0,0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                Click="BtnLeftPlayClick"
+                                                Content="测试音频输出"
+                                                FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                d:LayoutOverrides="VerticalAlignment" />
+                                    </Grid>
+                                    <Grid Grid.Row="2" Margin="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.ColumnSpan="2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="右手柄音频设置"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="VerticalAlignment, GridBox, HorizontalMargin" />
+                                        <Label Grid.Row="1"
+                                               Height="25"
+                                               Margin="0,0,0,2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="输入"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="HorizontalAlignment" />
+                                        <ComboBox x:Name="cbxRightInput"
+                                                  Grid.Row="1"
+                                                  Grid.Column="1"
+                                                  Margin="0,0,0,2"
+                                                  FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                  FontSize="16"
+                                                  SelectedItem="{Binding RightInput,
+                                                                         Mode=TwoWay}"
+                                                  d:LayoutOverrides="Height" />
+                                        <Label Grid.Row="2"
+                                               Height="25"
+                                               Margin="0,0,0,2"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"
+                                               Content="输出"
+                                               FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                               d:LayoutOverrides="HorizontalAlignment" />
+                                        <ComboBox x:Name="cbxRightOutput"
+                                                  Grid.Row="2"
+                                                  Grid.Column="1"
+                                                  Margin="0,0,0,2"
+                                                  FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                  FontSize="16"
+                                                  SelectedItem="{Binding RightOutput,
+                                                                         Mode=TwoWay}" />
+                                        <Button x:Name="btnRightPlay"
+                                                Grid.Row="3"
+                                                Grid.Column="2"
+                                                Height="30"
+                                                Margin="0,10,0,0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                Click="BtnRightPlayClick"
+                                                Content="测试音频输出"
+                                                FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                                d:LayoutOverrides="VerticalAlignment" />
+                                    </Grid>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Margin="0,0,0,1"
+                         FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                         FontSize="16"
+                         Header="编解码"
+                         Visibility="Hidden"
+                         d:LayoutOverrides="Width, Height">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid Margin="0,0,3,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ListView Name="lbxAudioCodec"
+                                      Grid.ColumnSpan="4"
+                                      Margin="0,0,0,5"
+                                      DisplayMemberPath="Name"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridView.Columns>
+                                            <GridViewColumn Width="30" Header="状态">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Image Width="16" Height="16">
+                                                            <Image.Style>
+                                                                <Style TargetType="Image">
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding IsDisabled}" Value="True">
+                                                                            <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/disable.ico" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding IsDisabled}" Value="False">
+                                                                            <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/enable.ico" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Image.Style>
+                                                        </Image>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="名称" />
+                                            <GridViewColumn DisplayMemberBinding="{Binding Path=Priority}" Header="优先级" />
+                                        </GridView.Columns>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            <Button Grid.Row="1"
+                                    Height="30"
+                                    Margin="0,0,5,0"
+                                    Content="上移"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                            <Button Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="0,0,5,0"
+                                    Content="下移"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                            <Button Grid.Row="1"
+                                    Grid.Column="2"
+                                    Margin="0,0,5,0"
+                                    Content="启用"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                            <Button Grid.Row="1"
+                                    Grid.Column="3"
+                                    Content="禁用"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                        </Grid>
+                        <Grid Grid.Column="1" Margin="0,0,3,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ListView Name="lbxVideoCodec"
+                                      Grid.ColumnSpan="4"
+                                      Margin="0,0,0,5"
+                                      DisplayMemberPath="Name"
+                                      FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                                      FontSize="16">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridView.Columns>
+                                            <GridViewColumn Width="30" Header="状态">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Image Width="16" Height="16">
+                                                            <Image.Style>
+                                                                <Style TargetType="Image">
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding IsDisabled}" Value="True">
+                                                                            <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/disable.ico" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding IsDisabled}" Value="False">
+                                                                            <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/enable.ico" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Image.Style>
+                                                        </Image>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="名称" />
+                                            <GridViewColumn DisplayMemberBinding="{Binding Path=Priority}" Header="优先级" />
+                                        </GridView.Columns>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            <Button Grid.Row="1"
+                                    Height="30"
+                                    Margin="0,0,5,0"
+                                    Content="上移"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                            <Button Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="0,0,5,0"
+                                    Content="下移"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                            <Button Grid.Row="1"
+                                    Grid.Column="2"
+                                    Margin="0,0,5,0"
+                                    Content="启用"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                            <Button Grid.Row="1"
+                                    Grid.Column="3"
+                                    Content="禁用"
+                                    FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" />
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <StackPanel Grid.Row="1"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                <Button x:Name="btnOK"
+                        Width="150"
+                        Height="50"
+                        Margin="0,0,10,0"
+                        Click="BtnOkClick"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16"
+                        IsDefault="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,0,10,0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="保存" />
+                        <Image Grid.Column="1"
+                               Width="32"
+                               Height="32"
+                               Margin="0,0,10,0"
+                               Source="/SupernovaDispatcher;component/Resources/save_3.png"
+                               Stretch="Fill"
+                               UseLayoutRounding="True" />
+
+                    </Grid>
+                </Button>
+                <Button x:Name="btnCancel"
+                        Width="150"
+                        Height="50"
+                        Margin="0,0,10,0"
+                        Click="BtnCancelClick"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16"
+                        IsCancel="True"
+                        IsDefault="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,0,10,0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="关闭" />
+                        <Image Grid.Column="1"
+                               Width="32"
+                               Height="32"
+                               Margin="0,0,10,0"
+                               Source="/SupernovaDispatcher;component/Resources/cancel_48.ico"
+                               Stretch="Fill"
+                               UseLayoutRounding="True" />
+
+                    </Grid>
+                </Button>
+                <Button x:Name="btnKeyboard"
+                        Width="50"
+                        Height="50"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Click="BtnKeyboardClick"
+                        Padding="0">
+                    <Grid Height="50"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center">
+                        <Image Height="50"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               RenderTransformOrigin="0.5,0.5"
+                               Source="/SupernovaDispatcher;component/Resources/keyboard.ico">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform />
+                                    <TranslateTransform Y="-3" />
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

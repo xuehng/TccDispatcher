@@ -1,0 +1,5 @@
+C:\work\tcc\bin\Release\InterProcPipe.dll
+C:\work\tcc\bin\Release\InterProcPipe.pdb
+C:\work\tcc\InterProcPipe\obj\Release\InterProcPipe.dll
+C:\work\tcc\InterProcPipe\obj\Release\InterProcPipe.pdb
+C:\work\tcc\InterProcPipe\obj\Release\InterProcPipe.csprojResolveAssemblyReference.cache

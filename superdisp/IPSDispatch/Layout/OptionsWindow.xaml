@@ -1,0 +1,75 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="renstech.NET.SupernovaDispatcher.IPSDispatch.Layout.OptionsWindow"
+        Title="选项" Height="575" Width="575" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="True" SnapsToDevicePixels="True" UseLayoutRounding="True">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0">
+            <TabItem Header="通用设置" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16">
+            	<Grid>
+            		<Grid.ColumnDefinitions>
+            			<ColumnDefinition/>
+            			<ColumnDefinition/>
+            		</Grid.ColumnDefinitions>	
+            		<Grid VerticalAlignment="Top">
+            			<Grid.RowDefinitions>
+            				<RowDefinition Height="Auto"/>
+            				<RowDefinition/>
+            			</Grid.RowDefinitions>
+            			<GroupBox Header="定位服务器设置" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" d:LayoutOverrides="Height" Margin="0,0,0,10">
+            				<Grid Margin="0,5">
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="Auto"/>
+            						<ColumnDefinition/>
+            					</Grid.ColumnDefinitions>
+            					<Grid.RowDefinitions>
+            						<RowDefinition Height="Auto"/>
+            						<RowDefinition Height="Auto"/>
+            						<RowDefinition Height="Auto"/>
+            					</Grid.RowDefinitions>
+            					<TextBlock TextWrapping="Wrap" Text="服务地址" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="12" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right"/>
+            					<TextBox TextWrapping="Wrap" Grid.Column="1" VerticalContentAlignment="Center" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Text="{Binding ServerAddr, Mode=TwoWay}" Margin="0"/>
+            					<TextBlock Grid.Row="1" TextWrapping="Wrap" Text="指令端口" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="12" ClipToBounds="True" Margin="0,5,5,0" VerticalAlignment="Center"/>
+            					<TextBox Grid.Row="1" Grid.Column="1" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Margin="0,5,0,0" Text="{Binding InstructPort, Mode=TwoWay}"/>
+            					<TextBlock TextWrapping="Wrap" Grid.Row="2" Text="事件端口" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="12" VerticalAlignment="Center" Margin="0,5,5,0" HorizontalAlignment="Right"/>
+            					<TextBox TextWrapping="Wrap" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Text="{Binding EventPort, Mode=TwoWay}" Margin="0,5,0,0"/>
+            				</Grid>            			
+            			</GroupBox>
+            			<GroupBox Header="LDAP服务器" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Grid.Row="1">
+            				<Grid>
+            					<Grid.RowDefinitions>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            						<RowDefinition/>
+            					</Grid.RowDefinitions>
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="Auto"/>
+            						<ColumnDefinition/>
+            					</Grid.ColumnDefinitions>
+                                <CheckBox x:Name="chkEnableLDAP"  Content="启用LDAP服务" d:LayoutOverrides="Width, Height" Grid.ColumnSpan="2" Margin="0,5,0,10" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" IsChecked="{Binding IsLDAPEnabled}" Checked="ChkEnableLdapChecked" Unchecked="ChkEnableLdapUnchecked" />
+            					<TextBlock Grid.Row="1" TextWrapping="Wrap" Text="账号" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="12" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="txtLDAPAccount"  TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Text="{Binding LDAPUser, Mode=TwoWay}" Margin="0"/>
+            					<TextBlock Grid.Row="2" TextWrapping="Wrap" Text="密码" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="12" ClipToBounds="True" Margin="0,5,5,0" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtLDAPPassword" Grid.Row="2" Grid.Column="1" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Margin="0,5,0,0" Text="{Binding LDAPPassowrd, Mode=TwoWay}"/>
+            					<TextBlock Grid.Row="3" TextWrapping="Wrap" Text="地址" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="12" VerticalAlignment="Center" Margin="0,5,5,0" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="txtLDAPAddr"  TextWrapping="Wrap" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Text="{Binding LDAPServerAddr, Mode=TwoWay}" Margin="0,5,0,0"/>
+            					<TextBlock Grid.Row="4" TextWrapping="Wrap" Text="端口" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="12" ClipToBounds="True" Margin="0,5,5,0" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtLDAPPort" Grid.Row="4" Grid.Column="1" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Margin="0,5,0,0" Text="{Binding LDAPPort, Mode=TwoWay}"/>
+            				</Grid>
+            			</GroupBox>	
+            		</Grid>	
+            	</Grid>
+            </TabItem>
+        </TabControl>
+        <StackPanel Margin="0,10,0,0" Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right">
+            <Button x:Name="btnOK" Content="确定" Width="150" Height="40" Margin="0,0,10,0" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" Click="BtnOkClick" />
+            <Button x:Name="btnCancel" Content="取消" Width="150" Height="40" IsDefault="True" IsCancel="True" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16"/>
+        </StackPanel>
+    </Grid>
+</Window>

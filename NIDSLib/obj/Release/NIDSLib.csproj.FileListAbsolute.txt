@@ -1,0 +1,5 @@
+C:\work\tcc\bin\Release\NIDSLib.dll
+C:\work\tcc\bin\Release\NIDSLib.pdb
+C:\work\tcc\nidslib\obj\Release\NIDSLib.dll
+C:\work\tcc\nidslib\obj\Release\NIDSLib.pdb
+C:\work\tcc\nidslib\obj\Release\NIDSLib.csprojResolveAssemblyReference.cache

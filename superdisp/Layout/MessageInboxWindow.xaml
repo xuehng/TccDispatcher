@@ -1,0 +1,200 @@
+﻿<Window x:Class="renstech.NET.SupernovaDispatcher.Layout.MessageInboxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xcpt="http://schemas.xceed.com/wpf/xaml/themes"
+        x:Name="Window"
+        Title="收件箱"
+        Width="640"
+        ShowInTaskbar="True"
+        Height="619"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow"
+        mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ListBox x:Name="lbxMessage"
+                     HorizontalContentAlignment="Stretch"
+                     VerticalContentAlignment="Stretch"
+                     FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.RowSpan="2" Width="30">
+                                <Image.Style>
+                                    <Style TargetType="{x:Type Image}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Readed}" Value="False">
+                                                <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/bullet_orange.png" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Readed}" Value="True">
+                                                <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/bullet_white.png" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="16"
+                                           FontStyle="Italic"
+                                           Text="{Binding From}" />
+                                <TextBlock Grid.Column="1"
+                                           HorizontalAlignment="Right"
+                                           FontSize="16"
+                                           FontStyle="Italic"
+                                           Foreground="DarkBlue"
+                                           Text="{Binding DateTime}" />
+                            </Grid>
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding Content}"
+                                       TextWrapping="Wrap" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Grid.Row="1"
+                  Height="50"
+                  Margin="0,10,0,0"
+                  d:LayoutOverrides="Width">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnReply"
+                        Margin="0,0,5,0"
+                        Click="btnReply_Click"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16"
+                        d:LayoutOverrides="HorizontalMargin">
+                    <Button.Style>
+                        <Style BasedOn="{x:Static xcpt:Office2007BlueResources.ButtonStyle}" TargetType="{x:Type Button}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedIndex, ElementName=lbxMessage}" Value="-1">
+                                    <Setter Property="IsEnabled" Value="false" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Width="32"
+                               Height="32"
+                               Margin="0,0,10,0"
+                               Source="/SupernovaDispatcher;component/Resources/replay.png"
+                               Stretch="Fill"
+                               UseLayoutRounding="True" />
+                        <TextBlock Grid.Column="1"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="回复消息" />
+                    </Grid>
+                </Button>
+                <Button x:Name="btnDeleteMsg"
+                        Grid.Column="1"
+                        Margin="0,0,5,0"
+                        Click="btnDeleteMsg_Click"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Width="32"
+                               Height="32"
+                               Margin="0,0,10,0"
+                               Source="/SupernovaDispatcher;component/Resources/Del.png"
+                               Stretch="Fill"
+                               UseLayoutRounding="True" />
+                        <TextBlock Grid.Column="1"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="删除" />
+                    </Grid>
+                    <Button.Style>
+                        <Style BasedOn="{x:Static xcpt:Office2007BlueResources.ButtonStyle}" TargetType="{x:Type Button}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedIndex, ElementName=lbxMessage}" Value="-1">
+                                    <Setter Property="IsEnabled" Value="false" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnDeleteAllMsg"
+                        Grid.Column="2"
+                        Margin="0,0,5,0"
+                        Click="btnDeleteAllMsg_Click"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Width="32"
+                               Height="32"
+                               Margin="0,0,10,0"
+                               Source="/SupernovaDispatcher;component/Resources/DelAll.png"
+                               Stretch="Fill"
+                               UseLayoutRounding="True" />
+                        <TextBlock Grid.Column="1"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="全部删除" />
+                    </Grid>
+                </Button>
+                <Button Grid.Column="3"
+                        Width="150"
+                        Margin="0"
+                        FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                        FontSize="16"
+                        IsCancel="True"
+                        IsDefault="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Width="32"
+                               Height="32"
+                               Margin="0,0,10,0"
+                               Source="/SupernovaDispatcher;component/Resources/cancel_48.ico"
+                               Stretch="Fill"
+                               UseLayoutRounding="True" />
+                        <TextBlock Grid.Column="1"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="关闭" />
+                    </Grid>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

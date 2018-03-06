@@ -1,0 +1,152 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:renstech.NET.SupernovaDispatcher.Converter"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:local="clr-namespace:renstech.NET.SupernovaDispatcher">
+
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converter:String2VisibilityConverter x:Key="String2VisibilityConverter" />
+    <converter:PiexlsMinusConverter x:Key="PixelsMinusConverter" />
+
+    <SolidColorBrush x:Key="ChannelIdleBrush" Color="#e48ea8bd" />
+    <SolidColorBrush x:Key="ChannelRingingBrush" Color="#e0f8f7ba" />
+    <SolidColorBrush x:Key="ChannelAnsweredBrush" Color="#ffefb4b4" />
+    <SolidColorBrush x:Key="ChannelHoldBrush" Color="#ffefb4b4" />
+
+    <DataTemplate x:Key="ChannelDataTemplate">
+        <Grid Margin="10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       SnapsToDevicePixels="True"
+                       Stretch="None"
+                       UseLayoutRounding="True"
+                       Visibility="{Binding Path=DataContext.IsChannelBusy,
+                                            Converter={StaticResource BooleanToVisibilityConverter},
+                                            RelativeSource={RelativeSource FindAncestor,
+                                                                           AncestorType={x:Type Button}}}">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DataContext.IsStateHold, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="True">
+                                    <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/hold.png" />
+                                </DataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding DataContext.IsIncomingCall, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="True" />
+                                        <Condition Binding="{Binding DataContext.IsStateHold, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/call_outbound.png" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding DataContext.IsIncomingCall, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="False" />
+                                        <Condition Binding="{Binding DataContext.IsStateHold, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Source" Value="/SupernovaDispatcher;component/Resources/call_inbound.png" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Image Grid.Row="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       SnapsToDevicePixels="True"
+                       Source="/SupernovaDispatcher;component/Resources/camera.png"
+                       Stretch="None"
+                       UseLayoutRounding="True"
+                       Visibility="{Binding Path=DataContext.HasVideo,
+                                            Converter={StaticResource BooleanToVisibilityConverter},
+                                            RelativeSource={RelativeSource FindAncestor,
+                                                                           AncestorType={x:Type Button}}}" />
+            </Grid>
+            <StackPanel Grid.RowSpan="2"
+                        Grid.Column="1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                <TextBlock FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="18">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DataContext.IsChannelBusy, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="False">
+                                    <Setter Property="Text" Value="{Binding DataContext.Name, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding DataContext.IsChannelBusy, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="True">
+                                    <Setter Property="Text" Value="{Binding DataContext.CallPartyDisplayName, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Margin="4,0,0,0"
+                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                           FontSize="12">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DataContext.IsChannelBusy, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="False">
+                                    <Setter Property="Text" Value="空闲" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding DataContext.IsChannelBusy, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="True">
+                                    <Setter Property="Text" Value="{Binding DataContext.CallPartyDisplayNumber, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding DataContext.IsChannelBusy, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Value="True">
+                                    <Setter Property="Visibility" Value="{Binding DataContext.CallPartyDisplayNumber, Converter={StaticResource String2VisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <Style x:Key="ChannelButtonStyle"
+           BasedOn="{StaticResource ButtonBaseStyle}"
+           TargetType="{x:Type Button}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource ChannelIdleBrush}" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsStateRinging}" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ChannelRingingBrush}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsStateBlinking}" Value="True">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard x:Name="BlinkingChannelAnim">
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                          Duration="0:0:1"
+                                                          FillBehavior="HoldEnd"
+                                                          RepeatBehavior="Forever"
+                                                          Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)">
+                                <DiscreteColorKeyFrame KeyTime="0:0:0" Value="#e48ea8bd" />
+                                <DiscreteColorKeyFrame KeyTime="0:0:0.5" Value="#e0f8f7ba" />
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsStateBlinking}" Value="False">
+                <DataTrigger.EnterActions>
+                    <StopStoryboard BeginStoryboardName="BlinkingChannelAnim" />
+                </DataTrigger.EnterActions>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsStateConnected}" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ChannelAnsweredBrush}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsStateHold}" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ChannelHoldBrush}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

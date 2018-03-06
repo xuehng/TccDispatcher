@@ -1,0 +1,16 @@
+﻿<Application x:Class="renstech.NET.SupernovaDispatcher.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xcpt="http://schemas.xceed.com/wpf/xaml/themes" Exit="Application_Exit">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <xcpt:Office2007BlueResourceDictionary LicenseKey="XPT20-8XYTA-5DXEN-BU3A"/>
+                <ResourceDictionary Source="Dictionary\ExpressionLight.xaml"/>
+                <ResourceDictionary Source="Dictionary\DispatcherResourceDictionary.xaml"/>
+                <ResourceDictionary Source="PADispatch/Layout/PAChannelButtonDictionary.xaml"/>
+                <ResourceDictionary Source="PADispatch/Layout/PAZoneButtonDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

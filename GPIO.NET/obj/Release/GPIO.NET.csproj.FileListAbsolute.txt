@@ -1,0 +1,5 @@
+C:\work\tcc\bin\Release\GPIO.NET.dll
+C:\work\tcc\bin\Release\GPIO.NET.pdb
+C:\work\tcc\GPIO.NET\obj\Release\GPIO.NET.dll
+C:\work\tcc\GPIO.NET\obj\Release\GPIO.NET.pdb
+C:\work\tcc\GPIO.NET\obj\Release\GPIO.NET.csprojResolveAssemblyReference.cache

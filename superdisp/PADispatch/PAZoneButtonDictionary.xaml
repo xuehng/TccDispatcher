@@ -1,0 +1,144 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:xcpt="http://schemas.xceed.com/wpf/xaml/themes"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <LinearGradientBrush x:Key="ZoneNormalBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFF" Offset="0" />
+        <GradientStop Color="#FF8AAEDA" Offset="0.521" />
+        <GradientStop Color="#FFC6D6EC" Offset="0.194" />
+        <GradientStop Color="#FFB4C9E5" Offset="0.811" />
+        <GradientStop Color="#FFB7C8E0" Offset="0.507" />
+        <GradientStop Color="#FFD1DEF0" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ZoneNormalBorderBrush" EndPoint="0.5,0" StartPoint="0.5,1">
+        <GradientStop Color="#FF84B2D4" />
+        <GradientStop Color="#FFADC7DE" Offset="1" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ZoneHighlightBrush" Color="#FFFFFFFF"/>
+    <LinearGradientBrush x:Key="ZoneMouseOverBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFF" Offset="0" />
+        <GradientStop Color="#FFFEF3B5" Offset="0.318" />
+        <GradientStop Color="#FFFFEB70" Offset="0.488" />
+        <GradientStop Color="#FFFFD02E" Offset="0.502" />
+        <GradientStop Color="#FFFFD932" Offset="0.834" />
+        <GradientStop Color="#FFFFF48B" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ZoneMouseOverBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFEEE8CF" Offset="0" />
+        <GradientStop Color="#FFC4AF8C" Offset="0.536" />
+        <GradientStop Color="#FFDCD1BF" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ZoneMouseOverHighlightBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFB" Offset="0" />
+        <GradientStop Color="#FFFEF3B5" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ZonePressedBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFC3BCAE" Offset="0" />
+        <GradientStop Color="#FFFDCE9D" Offset="0.046" />
+        <GradientStop Color="#FFFFA35B" Offset="0.452" />
+        <GradientStop Color="#FFFF8A2C" Offset="0.461" />
+        <GradientStop Color="#FFFF9F30" Offset="0.724" />
+        <GradientStop Color="#FFFFC472" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ZonePressedBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF8E8165" Offset="0" />
+        <GradientStop Color="#FFC3BCAE" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ZonePressedHighlightBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFF" Offset="0.665" />
+        <GradientStop Color="#FFC3BCAE" Offset="0" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ZoneDisabledBackgroundBrush" Color="#a5b6b4b4"/>
+    <SolidColorBrush x:Key="ZoneDisabledBorderBrush" Color="#66FFFFFF"/>
+    <SolidColorBrush x:Key="ZoneFocusBrush" Color="#FFE99862"/>
+
+    <LinearGradientBrush x:Key="ZoneActionBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFF" Offset="0" />
+        <GradientStop Color="#FFCB9E9E" Offset="0.046" />
+        <GradientStop Color="#FFCB9E9E" Offset="0.452" />
+        <GradientStop Color="#FFBC8383" Offset="0.461" />
+        <GradientStop Color="#FFAD6767" Offset="0.724" />
+        <GradientStop Color="#FFCB9E9E" Offset="1" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="GlyphBrush" Color="#FF527DB5"/>
+
+    <Style x:Key="NuclearButtonFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border>
+                        <Rectangle Margin="2" Stroke="#60000000" StrokeThickness="1" StrokeDashArray="1 2" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="ZoneButtonDataTemplate">
+        <Grid>
+            <StackPanel>
+                <TextBlock Text="{Binding Path=DataContext.Name, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" SnapsToDevicePixels="True" UseLayoutRounding="True"/>
+                <TextBlock Text="{Binding Path=DataContext.State, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi" FontSize="16" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=DataContext.IsAction, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                </DataTrigger>                                
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>   
+                </TextBlock>    
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    
+    <Style x:Key="ZoneButtonBaseStyle" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource NuclearButtonFocusVisual}"/>
+        <Setter Property="Background" Value="{DynamicResource ZoneNormalBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ZoneNormalBorderBrush}"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="Grid">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" CornerRadius="1.75"/>
+                        <ContentPresenter ContentTemplate="{DynamicResource ZoneButtonDataTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource DefaultedBorderBrush}" TargetName="Border"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource ZoneMouseOverBrush}" TargetName="Border"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource ZoneMouseOverBorderBrush}" TargetName="Border"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource ZonePressedBrush}" TargetName="Border"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource ZonePressedBorderBrush}" TargetName="Border"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="true"/>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="{DynamicResource ZoneDisabledBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource ZoneDisabledBorderBrush}" TargetName="Border"/>
+                            <Setter Property="Foreground" Value="{DynamicResource ZoneDisabledForegroundBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsAction}" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ZoneActionBrush}"></Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

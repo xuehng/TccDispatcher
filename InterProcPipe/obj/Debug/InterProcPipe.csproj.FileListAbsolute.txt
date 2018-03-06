@@ -1,0 +1,9 @@
+E:\projects\superdisp\branches\tcc\bin\Debug\InterProcPipe.dll
+E:\projects\superdisp\branches\tcc\bin\Debug\InterProcPipe.pdb
+E:\projects\superdisp\branches\tcc\InterProcPipe\obj\Debug\InterProcPipe.csprojResolveAssemblyReference.cache
+E:\projects\superdisp\branches\tcc\InterProcPipe\obj\Debug\InterProcPipe.dll
+E:\projects\superdisp\branches\tcc\InterProcPipe\obj\Debug\InterProcPipe.pdb
+C:\work\tcc\bin\Debug\InterProcPipe.dll
+C:\work\tcc\bin\Debug\InterProcPipe.pdb
+C:\work\tcc\InterProcPipe\obj\Debug\InterProcPipe.dll
+C:\work\tcc\InterProcPipe\obj\Debug\InterProcPipe.pdb

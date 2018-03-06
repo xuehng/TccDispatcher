@@ -1,0 +1,5 @@
+C:\work\tcc\bin\Release\sip_net.dll
+C:\work\tcc\bin\Release\sip_net.pdb
+C:\work\tcc\sip_net\obj\Release\sip_net.dll
+C:\work\tcc\sip_net\obj\Release\sip_net.pdb
+C:\work\tcc\sip_net\obj\Release\sip_net.csprojResolveAssemblyReference.cache

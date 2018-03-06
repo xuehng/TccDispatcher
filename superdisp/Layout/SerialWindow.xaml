@@ -1,0 +1,80 @@
+﻿<Window x:Class="renstech.NET.SupernovaDispatcher.Layout.SerialWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="Window"
+        Title="序列号"
+        Width="477"
+        Height="233"
+        Background="{DynamicResource WindowBackground}"
+        ResizeMode="NoResize"
+        ShowInTaskbar="True"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow">
+
+    <Grid x:Name="LayoutRoot"
+          Margin="5"
+          SnapsToDevicePixels="True"
+          UseLayoutRounding="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBox x:Name="txtSerial"
+                 Grid.ColumnSpan="2"
+                 Margin="0,0,0,5"
+                 FontSize="14"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap" />
+        <Button x:Name="btnClipboard"
+                Grid.Row="1"
+                Height="50"
+                Margin="0,0,5,0"
+                Click="btnClipboard_Click"
+                FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                FontSize="16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Width="32"
+                       Height="32"
+                       Margin="0,0,10,0"
+                       Source="/SupernovaDispatcher;component/Resources/copy_doc.png"
+                       Stretch="Fill"
+                       UseLayoutRounding="True" />
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="复制到剪贴板" />
+            </Grid>
+        </Button>
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
+                FontSize="16"
+                IsCancel="True"
+                IsDefault="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Width="32"
+                       Height="32"
+                       Margin="0,0,10,0"
+                       Source="/SupernovaDispatcher;component/Resources/cancel_48.ico"
+                       Stretch="Fill"
+                       UseLayoutRounding="True" />
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="关闭" />
+            </Grid>
+        </Button>
+    </Grid>
+</Window>

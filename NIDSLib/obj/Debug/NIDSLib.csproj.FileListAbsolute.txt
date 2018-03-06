@@ -1,0 +1,10 @@
+E:\projects\superdisp\branches\tcc\bin\Debug\NIDSLib.dll
+E:\projects\superdisp\branches\tcc\bin\Debug\NIDSLib.pdb
+E:\projects\superdisp\branches\tcc\nidslib\obj\Debug\NIDSLib.csprojResolveAssemblyReference.cache
+E:\projects\superdisp\branches\tcc\nidslib\obj\Debug\NIDSLib.dll
+E:\projects\superdisp\branches\tcc\nidslib\obj\Debug\NIDSLib.pdb
+C:\work\tcc\bin\Debug\NIDSLib.dll
+C:\work\tcc\bin\Debug\NIDSLib.pdb
+C:\work\tcc\nidslib\obj\Debug\NIDSLib.csprojResolveAssemblyReference.cache
+C:\work\tcc\nidslib\obj\Debug\NIDSLib.dll
+C:\work\tcc\nidslib\obj\Debug\NIDSLib.pdb
