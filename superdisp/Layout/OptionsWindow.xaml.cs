@@ -63,10 +63,11 @@ namespace renstech.NET.SupernovaDispatcher.Layout
             lstSystemUser.ItemsSource = _general.Users;
             checkboxMaxWindow.DataContext = _general;
             checkboxAutoRun.DataContext = _general;
-
+            //modbusport.ItemsSource = new List<string>{"COM1", "COM2", "COM3", "COM4", "COM5", "COM6" };
             try
             {
                 _general.IsAutoRun = RegistryInfo.IsAutoRunEnabled();
+                //_general.ModbusCOM = RegistryInfo.ModbusCom();
                 checkboxAutoRun.IsChecked = _general.IsAutoRun;
 
             }
@@ -86,6 +87,7 @@ namespace renstech.NET.SupernovaDispatcher.Layout
 
             cbxRingWavs.ItemsSource = LoadRingingFiles(Properties.Settings.Default.RingingFileDir);
             cbxLogLevel.ItemsSource = LogInfo.LogLevels;
+
         }
 
         private void InitializeSystemPage()
@@ -143,6 +145,8 @@ namespace renstech.NET.SupernovaDispatcher.Layout
                     {
                         if (RegistryInfo.IsAutoRunEnabled() != _general.IsAutoRun)
                             RegistryInfo.SetAutoRun(_general.IsAutoRun);
+                        //if (RegistryInfo.ModbusCom() != _general.ModbusCOM)
+                            //RegistryInfo.SetModbusCom(_general.ModbusCOM);
                     }
                     catch (Exception)
                     {

@@ -218,6 +218,7 @@ namespace renstech.NET.SupernovaDispatcher
             HandsetMgr = new HandsetManager();
             HandsetMgr.LeftGpio = _generalSetting.LeftGPIO;
             HandsetMgr.RightGpio = _generalSetting.RightGPIO;
+            HandsetMgr.ModbusComNum = _generalSetting.ModbusComNum;
             HandsetMgr.LeftCaptureDevice = _generalSetting.LeftInput;
             HandsetMgr.LeftPlaybackDevice = _generalSetting.LeftOutput;
             HandsetMgr.RightCaptureDevice = _generalSetting.RightInput;

@@ -3,3 +3,7 @@ C:\work\tcc\bin\Release\InterProcPipe.pdb
 C:\work\tcc\InterProcPipe\obj\Release\InterProcPipe.dll
 C:\work\tcc\InterProcPipe\obj\Release\InterProcPipe.pdb
 C:\work\tcc\InterProcPipe\obj\Release\InterProcPipe.csprojResolveAssemblyReference.cache
+D:\work\TccDispatcher\bin\Release\InterProcPipe.dll
+D:\work\TccDispatcher\bin\Release\InterProcPipe.pdb
+D:\work\TccDispatcher\InterProcPipe\obj\Release\InterProcPipe.dll
+D:\work\TccDispatcher\InterProcPipe\obj\Release\InterProcPipe.pdb

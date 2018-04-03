@@ -221,6 +221,7 @@ namespace renstech.NET.SupernovaDispatcher.Model.Handset
     public class HandsetManager
     {
         private GPIOInfo _gpioInst;
+        private SerialPort _modbusComInst;
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(Handset));
         
         public bool IsInitialized { get; private set; }
@@ -233,6 +234,8 @@ namespace renstech.NET.SupernovaDispatcher.Model.Handset
         public int RightGpio { get; set; }
         public string RightCaptureDevice { get; set; }
         public string RightPlaybackDevice { get; set; }
+
+        public string ModbusComNum { get; set; }
 
 
         public bool Initialize(string uafile,SupernovaSetting spnvSetting)
@@ -293,16 +296,29 @@ namespace renstech.NET.SupernovaDispatcher.Model.Handset
         {
             Log.Debug("_____HandsetModbusThread__1");
 
-            using (SerialPort port = new SerialPort("COM3"))
+            Log.Debug(String.Format("_____HandsetModbusThread___com___{0}", ModbusComNum));
+            try
+            {
+                _modbusComInst = new SerialPort(ModbusComNum);
+            }
+            catch (Exception ex)
+            {
+                Log.Debug("____HandsetModbusThread.Show ex, BEFORE");
+                System.Windows.MessageBox.Show(ex.Message);
+                Log.Debug("____HandsetModbusThread.Show ex, AFTER");
+                return;
+            }
+            
+            using (_modbusComInst)
             {
                 Log.Debug("_____HandsetModbusThread__using SerialPort COM3__BaudRate 9600 DataBits 8 Parity None StopBits One");
-                port.BaudRate = 9600;
-                port.DataBits = 8;
-                port.Parity = Parity.None;
-                port.StopBits = StopBits.One;
-                port.Open();
+                _modbusComInst.BaudRate = 9600;
+                _modbusComInst.DataBits = 8;
+                _modbusComInst.Parity = Parity.None;
+                _modbusComInst.StopBits = StopBits.One;
+                _modbusComInst.Open();
 
-                IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(port);
+                IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(_modbusComInst);
                 // create modbus master
                 //byte slaveId = 1;
                 byte slaveId = 254;

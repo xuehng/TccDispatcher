@@ -159,5 +159,27 @@ namespace renstech.NET.SupernovaDispatcher.Model
                 return false;
             return true;
         }
+
+        //public static void SetModbusCom(string val)
+        //{
+            //RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+            //if (rkApp == null)
+                //return;
+           // rkApp.SetValue("ModbusComPort", val);
+        //}
+
+        //public static string ModbusCom()
+        //{
+            //System.Console.WriteLine("_______reg_____ModbusCom_");
+           // RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+            //if (rkApp == null)
+               // return "";
+
+           // if (rkApp.GetValue("ModbusComPort") == null)
+               // return rkApp.GetValue("ModbusComPort").ToString();
+           // else
+               // return "";
+        //}
+
     }
 }

@@ -136,6 +136,7 @@ namespace renstech.NET.SupernovaDispatcher.Model
             Log.Info(string.Format("TimeSpendCounter__SpnvSys.InitCustomUser__{0}", stopWatch.ElapsedMilliseconds));
             stopWatch.Restart();
 
+            SIPUAMgr.RegStateInfo += OnRegState;
             SIPUAMgr.IncomingCallInfo += OnInComingCall;
             SIPUAMgr.CallStateInfo += OnCallStateChanged;
             SIPUAMgr.MediaStateInfo += OnAudioMediaStateChanged;
@@ -823,6 +824,10 @@ namespace renstech.NET.SupernovaDispatcher.Model
             Log.Debug("Protocal Stack Log: (SpnvSubSystem)OnCallStateChanged, End");
         }
 
+        private void OnRegState(object sender, RegStateArgs e)
+        {
+            Log.Debug(string.Format("_____SpnvSubSystem__OnRegState__e.StatusCode__{0}", e.StatusCode));
+        }
         private void OnInComingCall(object sender, IncomingCallArgs e)
         {
             Log.Debug("Protocal Stack Log: (SpnvSubSystem)OnInComingCall, Start");

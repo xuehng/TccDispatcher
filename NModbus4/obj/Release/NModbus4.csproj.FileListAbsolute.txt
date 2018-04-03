@@ -1,7 +1,0 @@
-C:\work\tcc\NModbus4\bin\Release\NModbus4.xml
-C:\work\tcc\NModbus4\bin\Release\NModbus4.dll
-C:\work\tcc\NModbus4\bin\Release\NModbus4.pdb
-C:\work\tcc\NModbus4\obj\Release\Modbus.Resources.resources
-C:\work\tcc\NModbus4\obj\Release\NModbus4.csproj.GenerateResource.Cache
-C:\work\tcc\NModbus4\obj\Release\NModbus4.dll
-C:\work\tcc\NModbus4\obj\Release\NModbus4.pdb

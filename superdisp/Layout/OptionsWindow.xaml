@@ -753,7 +753,7 @@
                                       Margin="0,5,0,0"
                                       FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
                                       FontSize="16"
-                                      Header="GPIO"
+                                      Header="ModBus"
                                       d:LayoutOverrides="GridBox">
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -768,33 +768,19 @@
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                            VerticalContentAlignment="Center"
-                                           Content="左手柄"
+                                           Content="手柄COM口"
                                            FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
                                            FontSize="12" />
-                                    <Label Grid.Row="1"
-                                           Margin="0,0,0,2"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Top"
-                                           Content="右手柄"
-                                           FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
-                                           FontSize="12" />
+                                    
                                     <TextBox Grid.Column="1"
                                              Margin="0,2"
                                              FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
                                              FontSize="16"
-                                             Text="{Binding LeftGPIO,
+                                             Text="{Binding ModbusComNum,
                                                             Mode=TwoWay}"
                                              TextWrapping="Wrap"
                                              d:LayoutOverrides="Height" />
-                                    <TextBox Grid.Row="1"
-                                             Grid.Column="1"
-                                             Margin="0,0,0,2"
-                                             FontFamily="/SupernovaDispatcher;component/Fonts/#FZYaoTi"
-                                             FontSize="16"
-                                             Text="{Binding RightGPIO,
-                                                            Mode=TwoWay}"
-                                             TextWrapping="Wrap"
-                                             d:LayoutOverrides="Height" />
+
                                 </Grid>
                             </GroupBox>
                             <GroupBox x:Name="groupUI"

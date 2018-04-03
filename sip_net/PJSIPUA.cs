@@ -64,8 +64,9 @@ namespace renstech.NET.PJSIP
             PJSIPInterop.sua_acc_get_info(accId, ref info);
 
             Account account = GetAccount(accId);
-            if (account != null)
+            if (account != null) {
                 account.IsRegistered = (info.status == 200);
+            }
 
             if (RegStateInfo != null) 
                 RegStateInfo(this, new RegStateArgs(accId, info.status, info.status_text));

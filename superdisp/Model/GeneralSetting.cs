@@ -27,6 +27,7 @@ namespace renstech.NET.SupernovaDispatcher.Model
 
         private int _leftGPIO;
         private int _righGPIO;
+        private string _modbusCOM;
 
         private string _mainInput;
         private string _mainOutput;
@@ -41,7 +42,6 @@ namespace renstech.NET.SupernovaDispatcher.Model
         private bool _isAutoStart;
 
         private readonly List<LoginUser> _users = new List<LoginUser>();
-
         public GeneralSetting()
         {
             //_logLevel = "OFF";
@@ -66,11 +66,23 @@ namespace renstech.NET.SupernovaDispatcher.Model
         public int RightGPIO 
         {
             get { return _righGPIO; }
-            set { IsModified = true;
+            set {
+                Log.Debug("________set______RightGPIO____________");
+                IsModified = true;
                 _righGPIO = value;
             }  
         }
-        
+
+        public string ModbusComNum
+        {
+            get { return _modbusCOM; }
+            set{
+                Log.Debug("________set______ModbusCOM____________");
+                IsModified = true;
+                _modbusCOM = value;
+            }
+        }
+
         public string MainInput
         {
             get { return _mainInput; }
@@ -140,7 +152,9 @@ namespace renstech.NET.SupernovaDispatcher.Model
         public bool IsAutoRun
         {
             get { return _isAutoStart; }
-            set { IsModified = true;
+            set {
+                Log.Debug("________set______IsAutoRun____________");
+                IsModified = true;
                 _isAutoStart = value;
             }
         }
@@ -159,6 +173,7 @@ namespace renstech.NET.SupernovaDispatcher.Model
 
             rVal._leftGPIO = _leftGPIO;
             rVal._righGPIO = _righGPIO;
+            rVal._modbusCOM = _modbusCOM;
 
             rVal._mainInput = _mainInput;
             rVal._mainOutput = _mainOutput;
@@ -182,6 +197,7 @@ namespace renstech.NET.SupernovaDispatcher.Model
         {
             _leftGPIO = setting._leftGPIO;
             _righGPIO = setting._righGPIO;
+            _modbusCOM = setting._modbusCOM;
 
             _mainInput = setting._mainInput;
             _mainOutput = setting._mainOutput;

@@ -1,9 +1,0 @@
-C:\work\tcc\bin\Release\LitePhone.exe.config
-C:\work\tcc\bin\Release\LitePhone.exe
-C:\work\tcc\bin\Release\LitePhone.pdb
-C:\work\tcc\LitePhone\obj\x86\Release\LitePhone.csprojResolveAssemblyReference.cache
-C:\work\tcc\LitePhone\obj\x86\Release\renstech.sharpsip.MainForm.resources
-C:\work\tcc\LitePhone\obj\x86\Release\renstech.simpleUA.Properties.Resources.resources
-C:\work\tcc\LitePhone\obj\x86\Release\LitePhone.csproj.GenerateResource.Cache
-C:\work\tcc\LitePhone\obj\x86\Release\LitePhone.exe
-C:\work\tcc\LitePhone\obj\x86\Release\LitePhone.pdb
