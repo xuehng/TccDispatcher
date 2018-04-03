@@ -1,9 +1,0 @@
-C:\work\tcc\bin\Release\GPIO.NET.dll
-C:\work\tcc\bin\Release\GPIO.NET.pdb
-C:\work\tcc\GPIO.NET\obj\Release\GPIO.NET.dll
-C:\work\tcc\GPIO.NET\obj\Release\GPIO.NET.pdb
-C:\work\tcc\GPIO.NET\obj\Release\GPIO.NET.csprojResolveAssemblyReference.cache
-D:\work\TccDispatcher\bin\Release\GPIO.NET.dll
-D:\work\TccDispatcher\bin\Release\GPIO.NET.pdb
-D:\work\TccDispatcher\GPIO.NET\obj\Release\GPIO.NET.dll
-D:\work\TccDispatcher\GPIO.NET\obj\Release\GPIO.NET.pdb
