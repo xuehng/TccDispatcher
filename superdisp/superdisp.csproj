@@ -239,6 +239,9 @@
     <Compile Include="Layout\VolumeAdjustWindow.xaml.cs">
       <DependentUpon>VolumeAdjustWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layout\ConfirmDialog.xaml.cs">
+      <DependentUpon>ConfirmDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layout\XferWindow.xaml.cs">
       <DependentUpon>XferWindow.xaml</DependentUpon>
     </Compile>
@@ -482,6 +485,10 @@
     <Page Include="Layout\VolumeAdjustWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Layout\ConfirmDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Layout\XferWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

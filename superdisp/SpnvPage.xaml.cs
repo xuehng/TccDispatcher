@@ -410,12 +410,16 @@ namespace renstech.NET.SupernovaDispatcher
             }
 
             //以上皆无，则发起会议
-            int callId = -1;
-            _subsystem.Channels.MakeCall(_subsystem.AccountId, mixconfnum, ref callId);
+            //int callId = -1;
+            //_subsystem.Channels.MakeCall(_subsystem.AccountId, mixconfnum, ref callId);
+            Log.Debug("_________before_____ConfirmDialog____________");
+            ConfirmDialog dialog = new ConfirmDialog(_subsystem, mixconfnum) { };
+            dialog.Owner = Window.GetWindow(this);
+            dialog.ShowDialog();
+            Log.Debug("_________after_____ConfirmDialog____________");
+            //Log.Debug(String.Format("Protocal Stack Log: (SpnvPage)btnMixedGroup_Click, Make Call:{0},{1},{2}", _subsystem.AccountId, mixconfnum, callId));
 
-            Log.Debug(String.Format("Protocal Stack Log: (SpnvPage)btnMixedGroup_Click, Make Call:{0},{1},{2}", _subsystem.AccountId, mixconfnum, callId));
-
-            Log.Debug("Protocal Stack Log: (SpnvPage)btnMixedGroup_Click, End");
+            //Log.Debug("Protocal Stack Log: (SpnvPage)btnMixedGroup_Click, End");
         }
 
         private void btnMixedGroupUser_Click(object sender, RoutedEventArgs e)
@@ -504,12 +508,18 @@ namespace renstech.NET.SupernovaDispatcher
                 }
             }
             //发起呼叫
-            int callId = -1;
-            _subsystem.Channels.MakeCall(_subsystem.AccountId, user.Number, ref callId);
+            //int callId = -1;
+            //_subsystem.Channels.MakeCall(_subsystem.AccountId, user.Number, ref callId);
 
-            Log.Debug(String.Format("Protocal Stack Log: (SpnvPage)btnMixedGroupUser_Click, Make Call:{0},{1},{2}", _subsystem.AccountId, user.Number, callId));
+            Log.Debug("_________before_____ConfirmDialog____________");
+            ConfirmDialog dialog = new ConfirmDialog(_subsystem, user.Number) { };
+            dialog.Owner = Window.GetWindow(this);
+            dialog.ShowDialog();
+            Log.Debug("_________after_____ConfirmDialog____________");
 
-            Log.Debug("Protocal Stack Log: (SpnvPage)btnMixedGroupUser_Click, End");
+            //Log.Debug(String.Format("Protocal Stack Log: (SpnvPage)btnMixedGroupUser_Click, Make Call:{0},{1},{2}", _subsystem.AccountId, user.Number, callId));
+
+            //Log.Debug("Protocal Stack Log: (SpnvPage)btnMixedGroupUser_Click, End");
         }
 
         #endregion
