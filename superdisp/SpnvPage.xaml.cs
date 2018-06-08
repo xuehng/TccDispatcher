@@ -415,6 +415,7 @@ namespace renstech.NET.SupernovaDispatcher
             Log.Debug("_________before_____ConfirmDialog____________");
             ConfirmDialog dialog = new ConfirmDialog(_subsystem, mixconfnum) { };
             dialog.Owner = Window.GetWindow(this);
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.ShowDialog();
             Log.Debug("_________after_____ConfirmDialog____________");
             //Log.Debug(String.Format("Protocal Stack Log: (SpnvPage)btnMixedGroup_Click, Make Call:{0},{1},{2}", _subsystem.AccountId, mixconfnum, callId));
@@ -514,6 +515,7 @@ namespace renstech.NET.SupernovaDispatcher
             Log.Debug("_________before_____ConfirmDialog____________");
             ConfirmDialog dialog = new ConfirmDialog(_subsystem, user.Number) { };
             dialog.Owner = Window.GetWindow(this);
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.ShowDialog();
             Log.Debug("_________after_____ConfirmDialog____________");
 
